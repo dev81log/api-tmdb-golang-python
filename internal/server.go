@@ -5,8 +5,8 @@ import (
 )
 
 func HttpServer() int {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		resp, err := http.Get("https://api.themoviedb.org/3/movie/550?api_key=2e93e66834b37efaaf60641340a1f6eb")
+	http.HandleFunc("/movie", func(w http.ResponseWriter, r *http.Request) {
+		resp, err := http.Get("https://api.themoviedb.org/3/movie/popular?api_key=2e93e66834b37efaaf60641340a1f6eb")
 		if err != nil {
 			panic(err)
 		}
