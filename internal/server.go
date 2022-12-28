@@ -8,7 +8,7 @@ import (
 )
 
 func HttpServer() int {
-	err := godotenv.Load("/home/asher/repos/Estudos/api-movie-data/api-tmdb/cmd/server/.env")
+	err := godotenv.Load()
 	if err != nil {
 		panic(err)
 	}
