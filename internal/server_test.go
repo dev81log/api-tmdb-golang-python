@@ -7,5 +7,6 @@ import (
 )
 
 func TestHttpServer(t *testing.T) {
-	assert.Equal(t, 200, HttpServer())
+	code := HttpServer()
+	assert.Equal(t, 200, code)
 }

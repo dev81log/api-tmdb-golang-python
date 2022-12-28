@@ -4,7 +4,7 @@ import (
 	"net/http"
 )
 
-func ClientMovie() {
+func ClientMovie() (*http.Request, error) {
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", "http://localhost:8080/movie", nil)
 	if err != nil {
@@ -15,4 +15,5 @@ func ClientMovie() {
 		panic(err)
 	}
 	defer resp.Body.Close()
+	return req, err
 }
