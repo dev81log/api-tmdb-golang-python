@@ -15,5 +15,12 @@ func ClientMovie() (*http.Request, error) {
 		panic(err)
 	}
 	defer resp.Body.Close()
+
+	resp.
+
 	return req, err
+
+
 }
+
+
