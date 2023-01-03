@@ -11,7 +11,7 @@ import (
 var BodyJson []byte
 
 func HttpServer() int {
-	err := godotenv.Load("/home/asher/repos/Estudos/api-movie-data/api-tmdb/internal/.env")
+	err := godotenv.Load("/home/asher/repos/Go_Expert/api-tmdb/internal/.env")
 	if err != nil {
 		panic(err)
 	}
