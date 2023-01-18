@@ -1,14 +1,13 @@
 package internal
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
 
 	"github.com/joho/godotenv"
 )
-
-var BodyJson []byte
 
 func HttpServer() int {
 	err := godotenv.Load("/home/asher/repos/Go_Expert/api-tmdb/internal/.env")
@@ -29,7 +28,14 @@ func HttpServer() int {
 			panic(err)
 		}
 
-		UnmarshalMovieTmdb(body)
+		movie, err := UnmarshalMovieTmdb(body)
+		if err != nil {
+			panic(err)
+		}
+
+		urlImage := "https://image.tmdb.org/t/p/w500/"
+
+		fmt.Println(urlImage + movie.Results[2].BackdropPath)
 
 	})
 
