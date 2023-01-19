@@ -8,31 +8,24 @@ import (
 	"github.com/joho/godotenv"
 )
 
-var BodyJson []byte
+var Status *int
 
-func HttpServer() int {
-	err := godotenv.Load("/home/asher/repos/Go_Expert/api-tmdb/internal/.env")
+func HandleMovies(w http.ResponseWriter, r *http.Request) []byte {
+	err := godotenv.Load("internal/.env")
 	if err != nil {
 		panic(err)
 	}
 	apiKey := os.Getenv("API_KEY")
 
-	http.HandleFunc("/movie", func(w http.ResponseWriter, r *http.Request) {
-		resp, err := http.Get("https://api.themoviedb.org/3/movie/popular?api_key=" + apiKey)
-		if err != nil {
-			panic(err)
-		}
-		defer resp.Body.Close()
+	resp, err := http.Get("https://api.themoviedb.org/3/movie/popular?api_key=" + apiKey)
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
 
-		body, err := ioutil.ReadAll(resp.Body)
-		if err != nil {
-			panic(err)
-		}
-
-		UnmarshalMovieTmdb(body)
-
-	})
-
-	http.ListenAndServe(":8080", nil)
-	return http.StatusOK
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+	return body
 }

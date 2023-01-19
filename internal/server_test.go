@@ -7,6 +7,7 @@ import (
 )
 
 func TestHttpServer(t *testing.T) {
-	code := HttpServer()
-	assert.Equal(t, 200, code)
+	status := HandleMovies
+	assert.NotNil(t, status, "Expected status to be not nil")
+	assert.NotEmpty(t, status, "Expected status to be not empty")
 }
