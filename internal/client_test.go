@@ -18,5 +18,6 @@ func TestClientMovie(t *testing.T) {
 	resp, err := client.Do(req)
 	assert.NoError(t, err, "Error executing request")
 	assert.NotEmpty(t, resp, "Expected response to be empty")
+	assert.Equal(t, 200, resp.StatusCode, "Expected status code to be 200")
 
 }
