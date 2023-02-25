@@ -12,7 +12,7 @@ import (
 var db *sql.DB
 
 func ConnectDB() {
-	// capture connection properties
+
 	cfg := mysql.Config{
 		User:                 os.Getenv("DBUSER"),
 		Passwd:               os.Getenv("DBPASS"),
@@ -22,7 +22,6 @@ func ConnectDB() {
 		AllowNativePasswords: true,
 	}
 
-	// get a database handle
 	var err error
 	db, err = sql.Open("mysql", cfg.FormatDSN())
 	if err != nil {

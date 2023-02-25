@@ -16,3 +16,6 @@
 
 # .env files
 *.env
+
+# docker
+.docker/mysql/dbdata

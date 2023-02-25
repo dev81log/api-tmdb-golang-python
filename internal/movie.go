@@ -1,6 +1,8 @@
 package internal
 
-import "encoding/json"
+import (
+	"encoding/json"
+)
 
 func UnmarshalMovieTmdb(data []byte) (MovieTmdb, error) {
 	var r MovieTmdb
