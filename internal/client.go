@@ -6,7 +6,7 @@ import (
 
 func ClientMovie() (*http.Request, error) {
 	client := &http.Client{}
-	req, err := http.NewRequest("GET", "http://localhost:8080/movie", nil)
+	req, err := http.NewRequest("GET", "http://localhost:8080/movies", nil)
 	if err != nil {
 		panic(err)
 	}

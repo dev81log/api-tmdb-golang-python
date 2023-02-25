@@ -12,7 +12,7 @@ func TestClientMovie(t *testing.T) {
 	assert.NoError(t, err, "ClientMovie returned an error")
 
 	assert.Equal(t, "GET", req.Method, "Expected GET request")
-	assert.Equal(t, "http://localhost:8080/movie", req.URL.String(), "Expected request to be sent to http://localhost:8080/movie")
+	assert.Equal(t, "http://localhost:8080/movies", req.URL.String(), "Expected request to be sent to http://localhost:8080/movies")
 
 	client := &http.Client{}
 	resp, err := client.Do(req)

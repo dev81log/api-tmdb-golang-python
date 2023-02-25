@@ -17,7 +17,7 @@ func ConnectDB() {
 		User:                 os.Getenv("DBUSER"),
 		Passwd:               os.Getenv("DBPASS"),
 		Net:                  "tcp",
-		Addr:                 "172.17.0.02:3306",
+		Addr:                 "localhost:3306",
 		DBName:               "movies_db",
 		AllowNativePasswords: true,
 	}
@@ -29,4 +29,5 @@ func ConnectDB() {
 		log.Fatal(err)
 	}
 	fmt.Println("Connected!")
+
 }

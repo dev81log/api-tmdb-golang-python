@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/dev81log/api-tmdb/internal"
@@ -10,6 +11,8 @@ import (
 
 func main() {
 
+	internal.ConnectDB()
+
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 	r.Get("/movies", routerMovies)
@@ -17,15 +20,16 @@ func main() {
 
 	http.ListenAndServe(":8080", r)
 
-	internal.ConnectDB()
 }
 
 func routerMovies(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("routerMovies")
 	w.Write([]byte(internal.HandleMovies(w, r)))
 
 }
 
 func InsertDBResults(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("InsertDBResults")
 	internal.InsertResultsIntoTmdb()
 
 }
