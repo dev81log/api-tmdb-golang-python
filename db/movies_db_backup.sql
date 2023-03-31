@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS results;
 CREATE TABLE
     results (
         id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-        aldult boolean DEFAULT FALSE NOT NULL,
+        adult boolean DEFAULT FALSE NOT NULL,
         backdrop_path VARCHAR(255) NOT NULL,
         original_language VARCHAR(255) NOT NULL,
         original_title VARCHAR(1000) NOT NULL,
@@ -16,3 +16,6 @@ CREATE TABLE
         vote_average FLOAT NOT NULL,
         vote_count INT NOT NULL
     );
+
+ALTER TABLE
+    results CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
